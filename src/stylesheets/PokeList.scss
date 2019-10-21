@@ -1,0 +1,17 @@
+.characteres {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  justify-items: center;
+
+  @media all and (min-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+  }
+
+  @media all and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 90%;
+  }
+}

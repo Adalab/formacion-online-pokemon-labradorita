@@ -1,0 +1,17 @@
+.header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__img {
+    width: 25%;
+  }
+
+  @media all and (max-width: 750px) {
+    //width: 80%;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+}
