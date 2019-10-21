@@ -11,9 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   padding-bottom: 20px;
-  /* background-image: url("./images/bkground.png");
-  background-size: cover;
-  background-repeat: no-repeat; */
+  background-color: rgb(255, 205, 70);
 }
 
 ul {
