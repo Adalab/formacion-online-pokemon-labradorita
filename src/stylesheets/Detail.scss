@@ -1,0 +1,113 @@
+.Detail {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 205, 70);
+  position: fixed;
+}
+
+.Detail__container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  height: 500px;
+  width: 400px;
+  background-color: white;
+  animation-name: cardShow;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  @keyframes cardShow {
+    from {
+      opacity: 1;
+      transform-origin: 0 0;
+      transform: scale(0) translate(-50%, -50%);
+    }
+    to {
+      opacity: 1;
+      transform-origin: 0 0;
+      transform: scale(1) translate(-50%, -50%);
+    }
+  }
+}
+
+.Detail__name {
+  height: 80px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(171, 5, 13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.Detail__mainInfo {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.Detail__types-type {
+  border: 1px solid rgb(180, 180, 180);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 4px;
+  margin: 5px 10px;
+  padding: 5px;
+  font-size: 12px;
+  justify-items: center;
+}
+
+.Detail__profile {
+  margin: 25px;
+  font-size: 16px;
+  text-transform: capitalize;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.Detail__info {
+  height: 60px;
+  background-color: rgb(171, 5, 13);
+  font-size: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.Detail__evolutions {
+  height: 60px;
+  background-color: rgb(171, 5, 13);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 10px;
+}
+
+.Detail__evolution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  text-transform: capitalize;
+  background-color: white;
+}
+
+.arrow {
+  height: 10px;
+  margin: 5px;
+}
+
+.backArrow {
+  top: 30px;
+  left: 30px;
+  height: 40px;
+  position: fixed;
+}

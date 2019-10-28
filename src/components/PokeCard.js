@@ -4,7 +4,7 @@ import "../stylesheets/PokeCard.scss";
 
 class PokeCard extends React.Component {
   render() {
-    const { pokemon } = this.props;
+    const { pokemon, evolvesFrom } = this.props;
 
     return (
       <div className="card">
@@ -30,6 +30,8 @@ class PokeCard extends React.Component {
               })}
             </ul>
           </div>
+          <h3 className="Card__evolution-title">Evoluciona de:</h3>
+          <h4 className="Card__evolution-specie">{evolvesFrom}</h4>
         </div>
       </div>
     );

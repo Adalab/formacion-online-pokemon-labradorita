@@ -1,8 +1,9 @@
 import React from "react";
 import { fetchData } from "../services/fetchData";
 import Header from "./Header";
-import PokeList from "./PokeList";
-import PokeFilter from "./PokeFilter";
+import Home from "./Home";
+import Detail from "./Detail";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "../stylesheets/App.scss";
 
@@ -10,6 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       pokemons: [],
       filterByName: ""
     };
@@ -30,7 +32,8 @@ class App extends React.Component {
       })
       .then(info => {
         this.setState({
-          pokemons: info
+          pokemons: info,
+          loading: false
         });
       });
   }
@@ -45,16 +48,41 @@ class App extends React.Component {
   render() {
     console.log(this.state.pokemons);
     // destructuring
-    const { pokemons, filterByName } = this.state;
+    const { pokemons, filterByName, loading } = this.state;
     return (
-      <div className="app">
-        <Header />
-        <PokeFilter
-          filterByName={filterByName}
-          getUserFilter={this.getUserFilter}
-        />
-        <PokeList pokemons={pokemons} filterByName={filterByName} />
-      </div>
+      <BrowserRouter>
+        <div className="app">
+          <Header />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <Home
+                  pokemons={pokemons}
+                  filterByName={filterByName}
+                  getUserFilter={this.getUserFilter}
+                  loading={loading}
+                />
+              )}
+            />
+            <Route
+              path="/pokemon/:pokemonId"
+              render={routerProps => {
+                return (
+                  <Detail
+                    selectedPokemon={pokemons.find(
+                      item =>
+                        item.id === parseInt(routerProps.match.params.pokemonId)
+                    )}
+                    pokemons={pokemons}
+                  />
+                );
+              }}
+            />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
